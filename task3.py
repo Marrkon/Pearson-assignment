@@ -1,5 +1,6 @@
 ### Task 3 - prepare test_utilization.csv
 
+from task2 import check_files_correctness
 import numpy as np
 import datetime
 
@@ -14,24 +15,34 @@ def adjust_format_to_date(row):
 # Get 'name' and 'teaching hours' from class_csv
 def get_name(row):
     desired_row = class_csv[class_csv['id'] == row['class_id']]
-    return desired_row.values[0][3], desired_row.values[0][6]
-    
-# Copy from test desired columns in test_utilization.csv and sort by 'class_id'
-df = test.sort_values(by = ['class_id'])
-df = df[['class_id','created_at','authorized_at','test_level_id']]
-df.columns = ['class_id', 'test_created_at','test_authorized_at','test_level']
+    return desired_row.values[0][3], desired_row.values[0][6]`
 
-# Change 'test_created_at' and 'test_authorized_at' date format
-df[['test_created_at', 'test_authorized_at']] = df.apply(adjust_format_to_date, axis=1, result_type="expand")
+# Perform test_utilization preparation
+def prepare_test_utilization():
 
-# Take class 'name' and 'teaching hours' from class_csv
-df[['class_name', 'teaching_hours']] = df.apply(get_name, axis=1, result_type="expand")
+    test = check_files_correctness()
 
-# Enumerate test_id from 1 to the range of data frame
-df['test_id'] = np.arange(1, df.shape[0]+1)
+    # Copy from test desired columns in test_utilization.csv and sort by 'class_id'
+    df = test.sort_values(by = ['class_id'])
+    df = df[['class_id','created_at','authorized_at','test_level_id']]
+    df.columns = ['class_id', 'test_created_at','test_authorized_at','test_level']
 
-# Make class_test_number
-df['class_test_number'] = df.groupby('class_id').cumcount()+1
+    # Change 'test_created_at' and 'test_authorized_at' date format
+    df[['test_created_at', 'test_authorized_at']] = df.apply(adjust_format_to_date, axis=1, result_type="expand")
 
-# Sort columns to desired order
-test_utilization = df[['class_id', 'class_name', 'teaching_hours', 'test_id', 'test_created_at', 'test_authorized_at', 'test_level', 'class_test_number']]
+    # Take class 'name' and 'teaching hours' from class_csv
+    df[['class_name', 'teaching_hours']] = df.apply(get_name, axis=1, result_type="expand")
+
+    # Enumerate test_id from 1 to the range of data frame
+    df['test_id'] = np.arange(1, df.shape[0]+1)
+
+    # Make class_test_number
+    df['class_test_number'] = df.groupby('class_id').cumcount()+1
+
+    # Sort columns to desired order
+    test_utilization = df[['class_id', 'class_name', 'teaching_hours', 'test_id', 'test_created_at', 'test_authorized_at', 'test_level', 'class_test_number']]
+
+    return test_utilization
+
+if __name__ == '__main__':
+    prepare_test_utilization()
