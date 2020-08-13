@@ -1,5 +1,6 @@
 ### Task 3 - prepare test_utilization.csv
 
+from task1 import import_files
 from task2 import check_files_correctness
 import numpy as np
 import datetime
@@ -13,13 +14,14 @@ def adjust_format_to_date(row):
     return dd_c, dd_a
 
 # Get 'name' and 'teaching hours' from class_csv
-def get_name(row):
+def get_name(row, class_csv):
     desired_row = class_csv[class_csv['id'] == row['class_id']]
-    return desired_row.values[0][3], desired_row.values[0][6]`
+    return desired_row.values[0][3], desired_row.values[0][6]
 
 # Perform test_utilization preparation
 def prepare_test_utilization():
 
+    class_csv, _, _ = import_files()
     test = check_files_correctness()
 
     # Copy from test desired columns in test_utilization.csv and sort by 'class_id'
@@ -31,7 +33,7 @@ def prepare_test_utilization():
     df[['test_created_at', 'test_authorized_at']] = df.apply(adjust_format_to_date, axis=1, result_type="expand")
 
     # Take class 'name' and 'teaching hours' from class_csv
-    df[['class_name', 'teaching_hours']] = df.apply(get_name, axis=1, result_type="expand")
+    df[['class_name', 'teaching_hours']] = df.apply(get_name, class_csv=class_csv, axis=1, result_type="expand")
 
     # Enumerate test_id from 1 to the range of data frame
     df['test_id'] = np.arange(1, df.shape[0]+1)
@@ -42,7 +44,9 @@ def prepare_test_utilization():
     # Sort columns to desired order
     test_utilization = df[['class_id', 'class_name', 'teaching_hours', 'test_id', 'test_created_at', 'test_authorized_at', 'test_level', 'class_test_number']]
 
+    print('Preparing test_utilization finished!')
     return test_utilization
 
 if __name__ == '__main__':
+    
     prepare_test_utilization()

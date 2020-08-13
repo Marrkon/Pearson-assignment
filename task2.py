@@ -15,6 +15,7 @@ def check_files_correctness():
     test = test[test['test_status'].notna()]
     test = test[test['authorized_at'].notna()]
 
+    print('File correctness inspection finished!')
     return test 
 
 if __name__ == '__main__':
