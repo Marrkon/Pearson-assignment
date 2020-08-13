@@ -20,12 +20,11 @@ numpy==1.17.3
 
 ## Setup
 
-To instal above requrements run below commands in the main folder of the repository.
+To instal above requrements, navigate to the main folder of the repository, and run below command:
 
 ```python
 
 pip3 install -r requirements.txt
-pip freeze > requirements.txt
 
 ```
 
