@@ -54,7 +54,7 @@ python3 task5.py
 
 ## Additional info
 
-- ~avg_class_test_overall_score~ in ***test_average_scores.csv*** has been rounded to 2 decimal places
-- some of the classes has empty ~avg_class_test_overall_score~ despite they are authorized and have a status SCORING_SCORED. They have just empty overall_result column
-- some of the classes have no test and can be deleted from classes.csv 
-- in test_average_scores.csv test_created_at is the earliest date when test appeared. Test_authorized_at is the oldest date of authorization
+- _avg_class_test_overall_score_ in ***test_average_scores.csv*** has been rounded to 2 decimal places
+- some of the classes has empty _avg_class_test_overall_score_ despite they are authorized and have SCORING_SCORED status. They have just empty _overall_score_ column on every relevant test.
+- some of the classes have no relevant tests and can be deleted from ***classes.csv***
+- in ***test_average_scores.csv*** _test_created_at_ is the earliest date when test appeared. _Test_authorized_at_ is the oldest date of authorization.
