@@ -25,7 +25,6 @@ To instal above requrements run below commands in the main folder of the reposit
 ```python
 
 pip3 install -r requirements.txt
-pip freeze > requirements.txt
 
 ```
 
