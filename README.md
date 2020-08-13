@@ -11,7 +11,7 @@ Task for Junior Data Engineer position in Pearson company
 
 ## Intro
 
-All the tasks are placed in separate .py files and are executable from the terminal (see Usage section). Alternatively all the tasks are solved in jupyter notebook ***ETL.ipynb***
+All the tasks are executable from the terminal (see Usage section), placed in separate .py files. Alternatively they are solved in jupyter notebook ***ETL.ipynb***
 
 ## Requirements
 
@@ -30,4 +30,23 @@ pip3 install -r requirements.txt
 
 ## Usage
 
-
+Return test.csv, test_level.csv, class_csv
+```python
+python3 task1.py
+```
+Return filtered test.csv
+```python
+python3 task2.py
+```
+Return test_utilization
+```python
+python3 task3.py
+```
+Return test_average_scores
+```python
+python3 task4.py
+```
+Prepare test_utilization.csv and test_average_scores.csv
+```python
+python3 task5.py
+```
