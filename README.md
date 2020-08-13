@@ -11,7 +11,7 @@ Task for Junior Data Engineer position in Pearson company
 
 ## Intro
 
-All the tasks are placed in separate .py files and are executable from the terminal (see Usage section). Alternatively all the tasks are solved in jupyter notebook ***ETL.ipynb***
+All the tasks are executable from the terminal (see Usage section), placed in separate .py files. Alternatively they are solved in jupyter notebook ***ETL.ipynb***
 
 ## Requirements
 
