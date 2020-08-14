@@ -7,7 +7,7 @@ Task for Junior Data Engineer position in Pearson company
 * [Requirements](#requirements)
 * [Setup](#setup)
 * [Usage](#usage)
-* [Additional info](#additionalinfo)
+* [Additional info](#additional)
 
 
 ## Intro
@@ -52,7 +52,7 @@ Prepare test_utilization.csv and test_average_scores.csv
 python3 task5.py
 ```
 
-## AdditionalInfo
+## Additional Info
 
 - avg_class_test_overall_score in ***test_average_scores.csv*** has been rounded to 2 decimal places
 - some of the classes have empty _avg_class_test_overall_score_ despite they are authorized and have SCORING_SCORED status. They have just an empty _overall_score_ column on every significant test.
