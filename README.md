@@ -7,8 +7,7 @@ Task for Junior Data Engineer position in Pearson company
 * [Requirements](#requirements)
 * [Setup](#setup)
 * [Usage](#usage)
-* [Additional info](#additional%20Info)
-
+* [Additional Info](#additional%20Info)
 
 ## Intro
 
