@@ -54,6 +54,10 @@ Insert datasets to tables in a Sqlite database.
 ```python
 python3 task6.py
 ```
+Run tests
+```python
+python3 task7.py
+```
 
 ## Additional Info
 
