@@ -29,6 +29,6 @@ cur.execute("CREATE TABLE columns_util " + columns_util + ";")
 df_avg_score.to_sql('avg_score', con, if_exists='append', index=False)
 df_test_util.to_sql('columns_util', con, if_exists='append', index=False)
 
-# See db result - unconment below 2 lines 
+# See db result 
 print(pd.read_sql_query("SELECT * FROM avg_score", con))
 print(pd.read_sql_query("SELECT * FROM columns_util", con))
