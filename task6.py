@@ -23,15 +23,16 @@ def insert_csv_into_db(path):
 
     # Create dedicated tables - each for one csv.
     cur.execute("CREATE TABLE avg_score " + columns_avg + ";") 
-    cur.execute("CREATE TABLE columns_util " + columns_util + ";") 
+    cur.execute("CREATE TABLE utils " + columns_util + ";") 
 
     # Insert data into sqlite database
     df_avg_score.to_sql('avg_score', con, if_exists='append', index=False)
-    df_test_util.to_sql('columns_util', con, if_exists='append', index=False)
+    df_test_util.to_sql('utils', con, if_exists='append', index=False)
 
     # See db result - unconment below 2 lines 
+    print("Tables utils and avg_score: \n")
     print(pd.read_sql_query("SELECT * FROM avg_score", con))
-    print(pd.read_sql_query("SELECT * FROM columns_util", con))
+    print(pd.read_sql_query("SELECT * FROM utils", con))
 
 if __name__ == '__main__':
     path = 'datasets/'
