@@ -6,9 +6,7 @@ from task3 import get_name, adjust_format_to_date
 import numpy as np
 
 # Take from test csv desired columns and calculate avg_class_test_overall_score
-def prepare_avg_score():
-    class_csv, _, _ = import_files()
-    test = check_files_correctness()
+def prepare_avg_score(class_csv, test):
 
     # Take idx of test marked as SCORING_SCORED
     df = test[test['test_status'] == 'SCORING_SCORED']
@@ -40,4 +38,12 @@ def prepare_avg_score():
     return avg_score
 
 if __name__ == '__main__':
-    prepare_avg_score()
+    # Import files
+    path = 'datasets/'
+    class_csv, _, test = import_files(path)
+
+    # Clear dataset - task2
+    test = check_files_correctness(test)
+
+    # Prepare avg csv
+    prepare_avg_score(class_csv, test)

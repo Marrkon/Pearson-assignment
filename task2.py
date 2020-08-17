@@ -4,7 +4,7 @@ from task1 import import_files
 
 # Filter rows of datasets in order to eliminate noise 
 def check_files_correctness(test):
-    
+
     # Select only rows with integer id
     test = test[test['student_id'].apply(lambda x: str(x).isdigit())]
     test = test[test['class_id'].apply(lambda x: str(x).isdigit())]
@@ -19,5 +19,6 @@ def check_files_correctness(test):
     return test 
 
 if __name__ == '__main__':
-    _, _, test = import_files()
+    path = 'datasets/'
+    _, _, test = import_files(path)
     check_files_correctness(test)

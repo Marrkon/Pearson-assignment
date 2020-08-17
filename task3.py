@@ -19,10 +19,7 @@ def get_name(row, class_csv):
     return desired_row.values[0][3], desired_row.values[0][6]
 
 # Perform test_utilization preparation
-def prepare_test_utilization():
-
-    class_csv, _, _ = import_files()
-    test = check_files_correctness()
+def prepare_test_utilization(class_csv, test):
 
     # Copy from test desired columns in test_utilization.csv and sort by 'class_id'
     df = test.sort_values(by = ['class_id'])
@@ -48,4 +45,12 @@ def prepare_test_utilization():
     return test_utilization
 
 if __name__ == '__main__':
-    prepare_test_utilization()
+    # Import files
+    path = 'datasets/'
+    class_csv, _, test = import_files(path)
+
+    # Clear dataset - task2
+    test = check_files_correctness(test)
+
+    # Prepare util csv
+    prepare_test_utilization(class_csv, test)
