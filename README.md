@@ -7,7 +7,7 @@ Task for Junior Data Engineer position in Pearson company
 * [Requirements](#requirements)
 * [Setup](#setup)
 * [Usage](#usage)
-
+* [Additional Info](#additional-info)
 
 ## Intro
 
@@ -50,3 +50,9 @@ Prepare test_utilization.csv and test_average_scores.csv
 ```python
 python3 task5.py
 ```
+
+## Additional Info
+
+- _avg_class_test_overall_score_ column in ***test_average_scores.csv*** has been rounded to 2 decimal places
+- some classes have empty value in _avg_class_test_overall_score_ column. They have just an empty _overall_score_ value on every significant test.
+- in ***test_average_scores.csv*** file, column _test_created_at_ is the earliest date when the test appeared. _Test_authorized_at_ column is the oldest date of authorization.
