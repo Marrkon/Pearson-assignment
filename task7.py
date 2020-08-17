@@ -30,9 +30,11 @@ class DFTests(unittest.TestCase):
     
         # If left != right rise an error
         assert_frame_equal(case3, self.fixture.iloc[37:38,])
+        #assert_frame_equal(case3, self.fixture.iloc[37:38,])
+        #assert_frame_equal(case3, self.fixture.iloc[37:38,])
+        #assert_frame_equal(case3, self.fixture.iloc[37:38,])
+
    
-     
-        
 if __name__ == '__main__':
     # Filename which opening will be tested
     filename =  'test.csv'
