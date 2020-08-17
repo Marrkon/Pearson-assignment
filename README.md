@@ -13,6 +13,8 @@ Task for Junior Data Engineer position in Pearson company
 
 All the tasks are executable from the terminal (see Usage section), placed in separate .py files. Alternatively they are solved in jupyter notebook ***ETL.ipynb***
 
+There are two contributors: cinas99 and Marrkon. They are both my personal accounts which are joined. 
+
 ## Requirements
 
 pandas==0.25.3  
