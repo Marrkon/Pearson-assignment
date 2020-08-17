@@ -1,3 +1,5 @@
+### Task 7 - unit testing
+
 from pandas.util.testing import assert_frame_equal, assert_series_equal, assert_index_equal
 from task2 import check_files_correctness 
 import pandas as pd
@@ -5,11 +7,8 @@ import unittest
 
 class DFTests(unittest.TestCase):
 
-    def setUp(self, filename):
+    def setUp(self, filename, path):
         """ Check set up of the csv """
-        
-        path = 'datasets/'
-        
         try:
             data = pd.read_csv(path + filename, sep = ';')
             
@@ -37,10 +36,10 @@ class DFTests(unittest.TestCase):
    
 if __name__ == '__main__':
     # Filename which opening will be tested
-    filename =  'test.csv'
+    filename, path =  'test.csv', 'datasets/'
 
     # Test part 
-    DFTests.setUp(unittest, filename)
+    DFTests.setUp(unittest, filename, path)
     DFTests.check_NaN_filtering(unittest)
 
     print("Test finished!")
