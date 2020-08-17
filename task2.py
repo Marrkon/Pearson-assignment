@@ -1,6 +1,8 @@
 ### Task 2 - check files correctness 
+
 from task1 import import_files
 
+# Filter rows of datasets in order to eliminate noise 
 def check_files_correctness():
 
     _, _, test = import_files()

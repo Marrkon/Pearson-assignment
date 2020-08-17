@@ -3,11 +3,10 @@
 from task1 import import_files
 from task2 import check_files_correctness
 from task3 import get_name, adjust_format_to_date
-
 import numpy as np
 
+# Take from test csv desired columns and calculate avg_class_test_overall_score
 def prepare_avg_score():
-
     class_csv, _, _ = import_files()
     test = check_files_correctness()
 

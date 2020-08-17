@@ -3,6 +3,7 @@
 from task3 import prepare_test_utilization
 from task4 import prepare_avg_score
 
+# Convert pandas dataframes to csv files
 def prepare_csv_from_results(path):
     print("\n\n*Start preparing test_utilization*")
     test_utilization = prepare_test_utilization()
