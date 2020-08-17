@@ -17,22 +17,37 @@ class DFTests(unittest.TestCase):
             
         self.fixture = data
 
+
+    # Task2 tests - filtering of NaN and int(id)
     def check_NaN_filtering(self):
-        """ Check if function in task2 clear the dataset in a proper way """        
-        empty_df = pd.DataFrame([],columns = ['id', 'student_id', 'class_id',  'created_at',  'updated_at', 'last_event_time',  'overall_score', 'test_status',	'institution_id', 'authorized_at', 'confidence_level',  'speaking_score', 'writing_score',  'reading_score',  'listening_score',  'test_level_id',  'licence_id'])
+        """ 
+             Test columns which are processed in task 2:
+            'student_id', 'class_id', 'test_status', 'authorized_at', 'test_level_id', 'licence_id'
+             If left != right, assert_frame_equal(left,right) will rise an error
+        """        
 
-        # Test few cases of data filtering from task2  
-        case1 = check_files_correctness(self.fixture.iloc[2:3,])
-        case2 = check_files_correctness(self.fixture.iloc[3:4,:])
-        case3 = check_files_correctness(self.fixture.iloc[37:38,])
-        case4 = check_files_correctness(self.fixture.iloc[41:42,])
-    
-        # If left != right rise an error
-        assert_frame_equal(case3, self.fixture.iloc[37:38,])
-        #assert_frame_equal(case3, self.fixture.iloc[37:38,])
-        #assert_frame_equal(case3, self.fixture.iloc[37:38,])
-        #assert_frame_equal(case3, self.fixture.iloc[37:38,])
+        # Nothing to change 
+        testing_set = self.fixture[['student_id', 'class_id', 'test_status',	'authorized_at', 'test_level_id',  'licence_id']]
+        case1 = check_files_correctness(testing_set.iloc[37:39,])
+        assert_frame_equal(case1, testing_set.iloc[37:39,])
 
+        # Values as numbers 
+        testing_set_2 = pd.DataFrame({'student_id':3, 'class_id':3, 'test_status':3, 'authorized_at':3, 'test_level_id':3, 'licence_id':3}, index=['student_id'])
+        case2 = check_files_correctness(testing_set_2)
+        assert_frame_equal(case2, testing_set_2)
+
+        # student_id values as string number
+        testing_set_3 = pd.DataFrame({'student_id':'3', 'class_id':3, 'test_status':3, 'authorized_at':3, 'test_level_id':3, 'licence_id':3}, index=['student_id'])
+        case3 = check_files_correctness(testing_set_3)
+        assert_frame_equal(case3, testing_set_3)
+
+        # All column values as string numbers
+        testing_set_4 = pd.DataFrame({'student_id':'4', 'class_id':'4', 'test_status':'4', 'authorized_at':'4', 'test_level_id':'4', 'licence_id':'4'}, index=['student_id'])
+        case4 = check_files_correctness(testing_set_4)
+        assert_frame_equal(case4, testing_set_4)
+
+    # Task3 tests - utils 
+    # Task4 tests - avg 
    
 if __name__ == '__main__':
     # Filename which opening will be tested

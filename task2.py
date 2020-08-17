@@ -4,6 +4,7 @@ from task1 import import_files
 
 # Filter rows of datasets in order to eliminate noise 
 def check_files_correctness(test):
+    print("test", test)
 
     # Select only rows with integer id
     test = test[test['student_id'].apply(lambda x: str(x).isdigit())]
