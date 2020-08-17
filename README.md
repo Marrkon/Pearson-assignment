@@ -50,6 +50,14 @@ Prepare test_utilization.csv and test_average_scores.csv
 ```python
 python3 task5.py
 ```
+Insert datasets to tables in a Sqlite database.
+```python
+python3 task6.py
+```
+Run tests
+```python
+python3 task7.py
+```
 
 ## Additional Info
 
