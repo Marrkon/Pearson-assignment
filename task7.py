@@ -9,11 +9,11 @@ class DFTests(unittest.TestCase):
         """ Check set up of the csv """
         
         path = 'datasets/'
-        test_file_name =  'test_average_scores.csv'
+        test_file_name =  'test.csv'
         
         try:
             data = pd.read_csv(path + test_file_name,
-                sep = ',')
+                sep = ';')
             
         except IOError:
             print ('Cannot open the file')
@@ -22,12 +22,23 @@ class DFTests(unittest.TestCase):
 
     def check_NaN_filtering(self):
         """ Check if function in task2 clear the dataset in a proper way """
-        check_files_correctness(self.fixture.iloc[1])
+
+
+        # Test few cases of data filtering from task2  
+        print("Here", self.fixture.iloc[1])
+
+        case1 = check_files_correctness(self.fixture.iloc[1])
+        case2 = check_files_correctness(self.fixture.iloc[2])
+        case3 = check_files_correctness(self.fixture.iloc[3])
+        case4 = check_files_correctness(self.fixture.iloc[4])
 
         try:
-            assert_frame_equal(self.fixture.loc[8].tolist(), [8, 23, 'Class 1A', '15+', '2018-08-19', '2018-12-20', 18.4])
+            assert_frame_equal(case1, [])
+            assert_frame_equal(case2, [])
+            assert_frame_equal(case3, [])
+            assert_frame_equal(case4, [])
         except:
-            print('Assert error', str([8, 23, 'Class 1A', '15+', '2018-08-19', '2018-12-20', 18.4]))
+            print('Assert error')
         
 if __name__ == '__main__':
     DFTests.setUp(unittest)
