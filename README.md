@@ -1,6 +1,4 @@
-# Pearson-assignment
-
-Task for Junior Data Engineer position in Pearson company
+# Student-Results-Summary
 
 ## Table of contents
 * [Intro](#intro)
